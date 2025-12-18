@@ -1,0 +1,45 @@
+{% extends 'journal_app/base.html' %}
+
+{% block 'content' %}
+    <main>
+        <div class="subtitle-header">
+            <h1>Topics</h1>
+        </div>
+        <p>Here you can access the Topics of your Entries. This will help you organize your Entries better!</p>
+    </main>
+
+    <section>
+        <div class="subtitle-section">
+            <h2 class="subtitle-section-header">Create a new Topic</h2>
+            <p class="section-paragraph">To organize your Entries better, you can create as many Topics as you want.
+                You can create a topic of, for example, a recent family trip, 
+                a project you are working on, or something silly like: Funny Moments with Friends.
+            </p>
+        </div>
+        <div class="create-btn">
+            <a href="{% url 'journal_app:create_topic' %}" target="_blank">
+                <button>Create a New Topic</button>
+            </a>
+        </div>
+    </section>
+    <section>
+        <h2>List of Topics:</h2>
+        <p>Click here to access <a href="{% url 'journal_app:detail' 0 %}">No Topic Entries</a></p>
+
+        <!-- Listing all of the topics -->
+        {% if latest_topics_list %}
+            <ul>
+                <!--Writing each Topic, except for the Topic with id of 0-->
+                {% for topic in latest_topics_list %}
+                    {% if topic.id != 0 %}
+                    <li><a href='{% url "journal_app:detail" topic.id %}'>{{topic.topic_text}}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+            </ul>
+        {% else %}
+            <p>No Topics added.</p>
+        {% endif %}
+
+    </section>
+{% endblock %}

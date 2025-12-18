@@ -1,0 +1,32 @@
+{% extends 'journal_app/base.html' %}
+
+{% block 'content' %}
+    <main>
+        <h1>Editing Topic</h1>
+        <h2>"{{topic}}"</h2>
+    </main>
+    {% if error_message %}
+        <p><legend>There was an error, please send valid information</legend></p>
+    {% endif %}
+    <form action="{% url 'journal_app:modify_topic' topic.id%}" method="post">
+    <!-- Using a token to send the data-->
+    {% csrf_token %}
+        <fieldset>
+            <label for="input_topic_title">Enter new title: </label>
+            <input type="text", maxlength="4000", required, name="new_topic_title", 
+            id="{{topic.id}}">
+            <input type="submit", value="Submit">
+        </fieldset>
+    </form>
+    
+    {% if topic.id != 0 %}
+        <div class="btn-delete">
+            <a href="{% url 'journal_app:remove_topic' topic.id %}">
+                <button id="btn-delete-topic">Delete Topic</button>
+            </a>
+        </div>
+    
+    {% else %}
+        <p>This Topic cannot be deleted.</p>
+    {% endif %}
+{% endblock %}

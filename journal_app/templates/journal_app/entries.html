@@ -1,0 +1,54 @@
+{% extends 'journal_app/base.html' %}
+
+{% block 'content' %}
+    <main>
+        <h1>Entries</h1>
+        <p>This is where you can access all of the Entries you created, 
+            wheter they have a Topic assigned or they are just lonely and 
+            topic-less entries.</p>
+        <p>Entries can not only be created, they can also be edited, modified, and deleted as well.</p>
+    </main>
+
+    <section>
+        <h2>Create an Entry</h2>
+        <p>A Journal wouldn't be a journal without Entries. Click below to add a new Entry to your Journal!</p>
+        <a class="create-btn" href="{% url 'journal_app:create_entry' %}">Create an Entry</a>
+    </section>
+
+    <section>
+        <h2>Last 5 Entries</h2>
+        <p>These are the last five entries you have created:</p>
+        <div class="top-5-container">
+            {% if last_five_entries %}
+                <ol>
+                {% for entry in last_five_entries %}
+                    <div class="top-5-item">
+                        <li class><a href="{% url 'journal_app:view' entry.id %}">{{entry.entry_title}}</a></li>
+                    </div>
+                {% endfor %}
+                </ol>
+            {% else %}
+                <p>No Entries have been written</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <section>
+        <h2>List Of Entries</h2>
+        <p>Here you can access all of your Entries. There are organized from first to last created.</p>
+        {% if last_five_entries %}
+            {% for entry in last_25_entries %}
+                <div class="entries-container">
+                    <div class="entry-card">
+                        <a href="{% url 'journal_app:view' entry.id%}" target="_blank"><h3>{{entry}}</h3></a>
+                        <small><p>Topic - {{entry.topic}}</p></small>
+                        <p>{{entry.entry_text}}</p>
+                        <p><strong><time datetime="{{entry.date_added.isoformat}}">{{entry.date_added}}</time></strong></p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+                <p>No Entries have been written</p>
+        {% endif %}
+    </section>
+{% endblock %}

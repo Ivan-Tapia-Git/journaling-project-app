@@ -1,0 +1,20 @@
+{% extends 'journal_app/base.html' %}
+{% block 'content' %}
+
+    <h1>{{topic.topic_text}}</h1>
+    <p>Date added: <time datetime="{{topic.date_added.isoformat}}">{{topic.date_added}}</time></p>
+
+    {% if topic.entry_set.all %}
+        <ul>
+            {% for entry in topic.entry_set.all %}
+                <li><a href="{% url 'journal_app:view' entry.id%}">{{entry.entry_title}}</a></li>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        <p>No entries were found</p>
+        <p>Create one: <a href="{% url 'journal_app:create_entry'%}">here</a></p>
+    {% endif %}
+
+    <a href="{% url 'journal_app:edit_topic' topic.id %}">Edit Topic</a>
+{% endblock %}

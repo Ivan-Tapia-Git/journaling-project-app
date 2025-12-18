@@ -1,0 +1,46 @@
+{% extends 'journal_app/base.html' %}
+{% block 'content' %}
+    <h1>Create a New Entry</h1>
+    <hr>
+    <div>
+        <form action="{% url 'journal_app:add_entry'%}", method="post">
+            {% csrf_token %}
+
+            <!-- Checking if the server is redirecting user to add a Topic-->
+            {% if error_message %}
+                <p>{{error_message}}</p>
+            {% endif %}
+
+            <fieldset>
+                <div>
+                    <label for="input-topic">Select Topic</label>
+                    <select required aria-selected="false" name="new_entry_topic", id="input-topic">
+                        <!-- Making multiple options based on # of Topics-->
+                        <option selected value="None">-------</option>
+                        {% for topic in list_topics %}
+                            <option value={{topic.id}}>{{topic}}</option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+                <div>
+                    <label for="new_entry_title_label">Enter Entry's Title</label>
+                    <input type="text" required maxlength="200" name="new_entry_title" id="new_entry_title_label">
+                </div>
+                <div>
+                    <label for="new_entry_text_label">Enter Entry's Text</label>
+                    <input type="text", required, maxlength="6000" name="new_entry_text" id="new_entry_text_label">
+                </div>
+
+                <br>
+
+                <div>
+                    <input type="submit" value="Submit">
+                </div>
+                
+            </fieldset>
+
+            
+        </form>
+    </div>
+{% endblock %}

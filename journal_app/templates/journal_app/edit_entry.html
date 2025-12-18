@@ -1,0 +1,35 @@
+{% extends 'journal_app/base.html' %}
+
+{% block 'content' %}
+    <h1>You are editing:</h1>
+    <h2>"{{entry}}"</h2>
+    <hr>
+
+    <form novalidate action="{% url 'journal_app:modify' entry.id %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <div class="menu-left-select, menu-left-point">
+
+                <label for="menu-select">Enter the Entry's Topic:</label>
+                <select class="menu-select" required name="edit_entry_topic">
+                    {% for topic in list_topics %}
+                        <option class="menu-option" value="{{topic.id}}">{{topic}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="menu-left-point">
+                <label for="entry_title">Enter the new Title</label>
+                <input type="text", name="edit_entry_title", id="entry_title", 
+                maxlength="200" required>
+            </div>
+
+            <div class="menu-left-point">
+                <label for="entry_text">Enter the new Text</label>
+                <input type="text" maxlength="4000" 
+                size="50" required id="entry" name="edit_entry_text" value="{{entry.id}}">
+            </div>
+            <button type="submit">Submit</button>
+        </fieldset>
+    </form>
+{% endblock %}

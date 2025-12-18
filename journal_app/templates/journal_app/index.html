@@ -1,0 +1,52 @@
+{% extends 'journal_app/base.html' %}
+{% load static %}
+
+{% block 'content' %}
+    <main>
+        <div class="index-title-h1">
+            <h1 class="index-title-h1">Welcome to Journal-ing</h1>
+        </div>
+        <div class="index-intro-p">
+            <p class="index-intro-p">Journal-ing is a place where you can write your life down.
+            This app allows you to write, edit, save, and review your own Entries.
+            </p>
+        </div>
+        
+        <div class="home-big-btns">
+            <a href="{% url 'journal_app:topic' %}"><button>Topics</button></a>
+            <a href="{% url 'journal_app:entry' %}"><button>Entries</button></a>
+        </div>
+    </main>
+    
+    <section>
+        <img src="{% static 'journal_app/images/place_holder_journal_img1.png' %}" 
+        title="Journal Book" 
+        alt="A Journal book Open">
+        <p>Though this app can be useful for anybody, it has a special 
+            focus on Developers, they can make Entries about their coding activity through the day.
+        </p>
+        <div class="img-home">
+            <img src="{% static 'journal_app/images/place_holder_journal_img2.png' %}
+            " title="Coding Journal" alt="A fragment of code written on a Journal">
+        </div>
+    </section>
+    <section>
+        <div class="phrase-container">
+            <div class="phrase-paragraph">
+                <p>You are Journal-ing your life.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="copyright-footer">
+            <p>No Copyright - Ivan Tapia</p>
+        </div>
+        <div class="clm-1-footer-links">
+            <a class="footer-link" href="#">Create a Topic</a>
+            <a class="footer-link" href="#">Create an Entry</a>
+            <a class="footer-link" href="#">About Us</a>
+            <a class="footer-link" href="#">Contact us</a>
+            <a class="footer-link" href="#">Useful links</a>
+        </div> 
+    </footer>
+{% endblock 'content' %}
