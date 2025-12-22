@@ -1,0 +1,8 @@
+.nav-link, .main-logo{
+    margin-left: 20px;
+    color: red;
+}
+
+body{
+    font-size: smaller;
+}
