@@ -167,7 +167,8 @@ def modifyTopic(request, topic_id):
     topic = get_object_or_404(Topic, pk=topic_id)
 
     try:
-        topic_title = request.POST['new_topic_title']
+        topic_title = request.PUT['new_topic_title']
+        print(request)
 
     except (ValueError, Topic.DoesNotExist):
         return render(request, 

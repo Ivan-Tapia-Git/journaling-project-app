@@ -5,7 +5,7 @@
     <h2>"{{entry}}"</h2>
     <hr>
 
-    <form novalidate action="{% url 'journal_app:modify' entry.id %}" method="post">
+    <form novalidate action="{% url 'journal_app:modify' entry.id %}" method="put">
         {% csrf_token %}
         <fieldset>
             <div class="menu-left-select, menu-left-point">
