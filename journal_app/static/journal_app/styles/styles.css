@@ -5,5 +5,8 @@
 .index-title-h1{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 32px;
-    background-color: aqua;
+    background-color: brown;
+    display: inline;
+    text-align: right;
+    color: aqua;
 }
