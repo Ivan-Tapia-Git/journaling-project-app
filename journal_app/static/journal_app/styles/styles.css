@@ -2,11 +2,44 @@
     background-color: grey;
 } */
 
+/* We are going to wrk with the header links
+Notes: Working in displaying flexible links headers */
+
+.nav-bar a:hover{
+    color: rgb(6, 135, 92);
+}
+
+.nav-bar a:link{
+    text-decoration: none;
+}
+
+.nav-bar a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+}
+
+.main-logo{
+    font-size: 24px;
+}
+
+/* .nav-right-btn{
+    display: inline-flex;
+    border-radius: 5px;
+    background-color: blueviolet;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 5px;
+} */
+
 .index-title-h1{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 32px;
-    background-color: brown;
-    display: inline;
-    text-align: right;
-    color: aqua;
+    color: grey;
+    text-align: center;
+}
+
+.journal-title-header{
+    font-size: 45px;
+    color: aquamarine;
 }
