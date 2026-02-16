@@ -1,5 +1,7 @@
 from django.urls import path
-
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from . import views
 
 
@@ -29,4 +31,6 @@ urlpatterns = [
     path("entry/create/add", views.addEntry, name="add_entry"),
 
     #path("")
-]
+] 
+# Adding static files during development
+urlpatterns += staticfiles_urlpatterns()
