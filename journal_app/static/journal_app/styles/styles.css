@@ -5,6 +5,29 @@
 /* We are going to wrk with the header links
 Notes: Working in displaying flexible links headers */
 
+.nav-right-btn{
+    box-sizing: border-box;
+    min-width: 24px;
+    min-height: 44px;             
+    margin-left: 8px;
+    border: 8px solid blueviolet;
+    border-radius: 5px;
+    color: white;
+    background-color: blueviolet;
+}
+
+.nav-account-btns{
+    /* padding: 4px; */
+    margin-inline-end: 4px;
+    
+    display: inline;
+    justify-content: right;
+    display: flex;
+    float: right;
+}
+
+
+
 .nav-bar a:hover{
     color: rgb(6, 135, 92);
 }
@@ -17,20 +40,26 @@ Notes: Working in displaying flexible links headers */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding-left: 10px;
     padding-right: 10px;
-    display: flex;
+    text-align: center;
 }
 
 .main-logo{
     font-size: 24px;
 }
 
-/* .nav-right-btn{
-    display: inline-flex;
-    border-radius: 5px;
-    background-color: blueviolet;
+.nav-right-btn a{
+    text-align: right;
+    color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-left: 5px;
-} */
+}
+/* Working on
+    Mkaing the acount buttons larger and prettier
+    Making them fit into the right
+    Make the Topics and Entries buttons larger
+    Change p font
+    Resize Images*/
+
+
 
 .index-title-h1{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -42,4 +71,10 @@ Notes: Working in displaying flexible links headers */
 .journal-title-header{
     font-size: 45px;
     color: aquamarine;
+}
+
+.index-img{
+    box-sizing: content-box;
+    width: 50%;
+    height: 50%;
 }
