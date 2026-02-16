@@ -1,14 +1,14 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block 'description' %}
-        <meta name="description" content="Welcome to Journal-ing, the prefered app by developers and designers to keep track of their daily work.">
+    <meta name="description" content="Welcome to Journal-ing, the prefered app by developers and designers to keep track of their daily work.">
     {% endblock %}
     <title>{% block 'title' %}Journal-ing{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'journal_app/styles/styles.css'%}">
+    <link rel="stylesheet" href="{% static 'journal_app/styles/styles.css' %}">
 </head>
 <body>
     <header>
@@ -17,7 +17,11 @@
                 <a class="main-logo" href="{% url 'journal_app:index' %}">Journal-ing</a>
                 <a class='nav-link' href="{% url 'journal_app:topic'%}">Topics</a>
                 <a class="nav-link" href="{% url 'journal_app:entry'%}">Entries</a>
-                <a class='nav-link' href="#">Create</a>
+                <!--These Buttons would be added in a future version.-->
+                <!-- <div class="nav-account-btns">
+                    <a class="nav-link nav-right-btn" href="#"><b>Sign In</b></a>
+                    <a class="nav-link nav-right-btn" href="#"><b>Log In</b></a>
+                </div> -->
             </div>
         </nav>
     </header>
